@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TC 재무 관리</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="script.js" defer></script>
+    <style>
+        @font-face {
+            font-family: 'Cafe24ClassicType-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Cafe24ClassicType-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- 네비게이션 바 -->
+    <div class="navbar">
+        <img src="ppp.png" alt="로고" class="logo">
+        <span class="navbar-title">TC 재무</span>
+    </div>
+
+    <div class="main-container">
+        <div class="container">
+            <!-- 현재 잔액 섹션 -->
+            <div id="balanceContainer">
+                <h2>현재 잔액</h2>
+                <div class="balance-box">
+                    <span id="balance">0</span> 원
+                </div>
+                <button id="setInitialBalanceBtn">초기 잔액 설정</button>
+                <div id="initialBalanceSection" style="display: none;">
+                    <label for="initialBalance">초기 잔액:</label>
+                    <input type="number" id="initialBalance" required><br>
+                    <button id="saveInitialBalanceBtn">저장</button>
+                </div>
+            </div>
+
+            <!-- 수입/지출 추가 버튼 섹션 -->
+            <div id="actionButtons">
+                <button id="addIncomeBtn" class="action-btn">수입 추가</button>
+                <button id="addExpenseBtn" class="action-btn">지출 추가</button>
+            </div>
+
+            <!-- 수입/지출 입력 화면 -->
+            <div id="formSection" style="display: none;">
+                <label for="amount">금액:</label>
+                <input type="number" id="amount" required><br>
+
+                <label for="date">날짜:</label>
+                <input type="date" id="date" required><br>
+
+                <!-- 카테고리 선택 (지출일 경우에만 표시) -->
+                <div id="categorySection" style="display: none;">
+                    <label for="category">카테고리:</label>
+                    <select id="category">
+                        <option value="식비">식비</option>
+                        <option value="교통비">교통비</option>
+                        <option value="기타">기타</option>
+                    </select><br>
+                </div>
+
+                <button id="saveBtn">저장</button>
+                <button id="cancelBtn">취소</button>
+            </div>
+
+            <!-- 결과 버튼 추가 -->
+            <button id="resultBtn">결과</button>
+            <!-- 하루 결과 -->
+            <div id="dailyReportSection">
+                <h2>하루 결과</h2>
+                <div id="dailyReport"></div>
+                <canvas id="financialChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+        <!-- 계산기 섹션 -->
+       <!-- 계산기 섹션 -->
+<div class="calculator">
+    <input type="text" id="calcDisplay" disabled><br>
+    <div class="calculator-grid">
+        <button onclick="appendToCalc('1')">1</button>
+        <button onclick="appendToCalc('2')">2</button>
+        <button onclick="appendToCalc('3')">3</button>
+        <button onclick="clearCalc()">C</button>
+        <button onclick="appendToCalc('4')">4</button>
+        <button onclick="appendToCalc('5')">5</button>
+        <button onclick="appendToCalc('6')">6</button>
+        <button onclick="appendToCalc('+')">+</button>
+        <button onclick="appendToCalc('7')">7</button>
+        <button onclick="appendToCalc('8')">8</button>
+        <button onclick="appendToCalc('9')">9</button>
+        <button onclick="appendToCalc('-')">-</button>
+        <button onclick="appendToCalc('0')">0</button>
+        <button onclick="appendToCalc('.')">.</button>
+        <button onclick="calculateResult()">=</button>
+        <button onclick="appendToCalc('*')">*</button>
+    </div>
+</div>
+    </div>
+</body>
+</html>
